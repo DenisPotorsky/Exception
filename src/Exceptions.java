@@ -1,9 +1,15 @@
+import java.util.Arrays;
+
 public class Exceptions {
 
     public static void main(String[] args) {
 
-        String[][] array = new String[][]{{"2", "1"}, {"2", "2"}};
-        System.out.println(sum2d(array));
+        //String[][] array = new String[][]{{"2", "1"}, {"2", "2"}};
+        //System.out.println(sum2d(array));
+        int[] a ={1, 2};
+        int[] b = {0, 4};
+        int[] c = arraysDivide(a, b);
+        System.out.println(Arrays.toString(c));
     }
 
     //1 задание
@@ -45,6 +51,9 @@ public class Exceptions {
         } else {
             int[] c = new int[a.length];
             for (int i = 0; i < a.length; i++) {
+                if(a[i] == 0 || b[i] == 0){
+                    throw new RuntimeException("Division by zero");
+                }
                 c[i] = a[i] / b[i];
             }
             return c;
